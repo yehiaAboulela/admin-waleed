@@ -1,0 +1,84 @@
+@if (unit.id) {
+<section class="my-5">
+  <div class="container">
+    <div class="row vh-100">
+      <div class="col-lg-6">
+        <div class="slider-parent">
+          <div class="side">
+            @for(img of imgs.slice(0, 5) ;track img){
+            <div class="side-img" (click)="curImg = $index">
+              <img [src]="img.URL" alt="" />
+            </div>
+            }
+          </div>
+          <div class="main">
+            <img [src]="imgs[curImg].URL" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div>
+          <h1 class="h5 text-center">{{ unit.university }}</h1>
+          <hr />
+          <form [formGroup]="ubdateForm" (ngSubmit)="ubdate(unit.id)">
+            <div class="mb-3">
+              <label for="price">Price:</label>
+              <input
+                type="number"
+                id="price"
+                class="form-control"
+                formControlName="price"
+                [placeholder]="unit.price"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="address">Address:</label>
+              <textarea
+                id="address"
+                class="form-control"
+                formControlName="address"
+                [placeholder]="unit.address"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="details">Details:</label>
+              <textarea
+                id="details"
+                class="form-control"
+                formControlName="details"
+                [placeholder]="unit.details"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="transport">Transportations:</label>
+              <textarea
+                id="transport"
+                class="form-control"
+                [placeholder]="unit.transportations[0].address"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="region">Region:</label>
+              <input
+                type="text"
+                id="region"
+                class="form-control"
+                formControlName="region"
+                [placeholder]="unit.region"
+              />
+            </div>
+            <button class="btn btn-primary me-2" type="submit">Apply</button>
+            <button
+              class="btn btn-danger"
+              type="button"
+              (click)="delete(unit.id)"
+            >
+              Delete
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}

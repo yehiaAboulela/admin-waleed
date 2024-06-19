@@ -1,0 +1,30 @@
+.slider-parent {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.slider-parent .side {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+}
+.slider-parent .side .side-img {
+  margin-bottom: 5px;
+  cursor: pointer;
+  padding: 1px;
+  border: 2px solid #eee;
+}
+.slider-parent .main {
+  width: 88%;
+  height: 600px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  overflow: hidden;
+}
+.slider-parent .main img,
+.slider-parent .side .side-img img {
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+.my-card {
+  display: inline-block;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.my-card:hover {
+  background-color: #eee;
+}

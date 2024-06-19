@@ -1,0 +1,23 @@
+<h2>Responsive Table</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Universty</th>
+        <th>Price</th>
+        <th>region</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(unit of units; track unit){
+      <tr class="link" [routerLink]="['/ubdate', unit.id]">
+        <td>{{ unit.id }}</td>
+        <td>{{ unit.university }}</td>
+        <td>{{ unit.price }}</td>
+        <td>{{ unit.region }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
