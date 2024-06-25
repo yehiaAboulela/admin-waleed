@@ -35,7 +35,7 @@ export class UnitsService {
     );
   }
 
-  addUnit(body: object): Observable<any> {
+  addUnit(body: any): Observable<any> {
     return this.HTTP.post(
       `https://university-manager-beta.onrender.com/department/add`,
       body,

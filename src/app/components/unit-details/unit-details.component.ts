@@ -28,7 +28,6 @@ export class UnitDetailsComponent implements OnInit {
       next: (data) => {
         this.UnitsService.getUnitById(data['id']).subscribe({
           next: (res) => {
-            console.log(res);
             this.unit = res;
             this.imgs = res.images;
           },
@@ -37,6 +36,7 @@ export class UnitDetailsComponent implements OnInit {
     });
   }
   ubdateForm: FormGroup = this.FormBuilder.group({
+    university: [this.unit.university],
     address: [this.unit.address],
     details: [this.unit.details],
     price: [this.unit.price],
@@ -44,27 +44,31 @@ export class UnitDetailsComponent implements OnInit {
   });
 
   delete(id: number) {
-    // this.UnitsService.ubdateUnit(id, { id: null }).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //   },
-    // });
-    this.UnitsService.deleteUnit(id).subscribe({
+    this.UnitsService.ubdateUnit(id, { id: null }).subscribe({
       next: (res) => {
+        console.log(res);
         this.toastr.error('Deleted succefully');
       },
     });
+    // this.UnitsService.deleteUnit(id).subscribe({
+    //   next: (res) => {
+    //     this.toastr.error('Deleted succefully');
+    //   },
+    // });
   }
   ubdate(id: number) {
+    this.toastr.info('Updated succefully');
     let baseBody = this.unit;
+    baseBody.university =
+      this.ubdateForm.value.university || this.unit.university;
     baseBody.address = this.ubdateForm.value.address || this.unit.address;
     baseBody.price = this.ubdateForm.value.price || this.unit.price;
     baseBody.details = this.ubdateForm.value.details || this.unit.details;
     baseBody.region = this.ubdateForm.value.region || this.unit.region;
     this.UnitsService.ubdateUnit(id, baseBody).subscribe({
       next: (res) => {
-        this.unit = res;
         console.log(res);
+        this.unit = res;
         this.toastr.info('Updated succefully');
       },
     });

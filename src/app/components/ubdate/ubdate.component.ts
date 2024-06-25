@@ -15,7 +15,7 @@ export class UbdateComponent implements OnInit {
   ngOnInit(): void {
     this.UnitsService.getAllUnits().subscribe({
       next: (res: Unit[]) => {
-        this.units = res.filter((cur) => cur.address);
+        this.units = res.filter((cur) => cur.address && cur.id);
       },
     });
   }

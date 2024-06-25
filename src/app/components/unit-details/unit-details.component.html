@@ -18,9 +18,20 @@
       </div>
       <div class="col-lg-6">
         <div>
-          <h1 class="h5 text-center">{{ unit.university }}</h1>
-          <hr />
           <form [formGroup]="ubdateForm" (ngSubmit)="ubdate(unit.id)">
+            <div class="universityName-parent">
+              <input
+                type="text"
+                id="university"
+                class="universityName"
+                formControlName="university"
+                [placeholder]="unit.university"
+              />
+              <label for="university">
+                <i class="fa fa-pen"></i>
+              </label>
+            </div>
+            <hr />
             <div class="mb-3">
               <label for="price">Price:</label>
               <input

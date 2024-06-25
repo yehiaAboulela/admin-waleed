@@ -68,7 +68,7 @@ https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress
     price: ['', [Validators.required]],
     address: ['', [Validators.required]],
     region: ['', [Validators.required]],
-    universty: ['', [Validators.required]],
+    university: ['', [Validators.required]],
   });
 
   AddUnit() {
@@ -81,6 +81,9 @@ https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress
     this.UnitsService.addUnit(newBody).subscribe({
       next: (res) => {
         console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
       },
     });
   }

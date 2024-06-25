@@ -28,3 +28,15 @@
 .slider-parent .side .side-img img {
   width: 100%;
 }
+.universityName-parent {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.universityName-parent input {
+  border: none;
+  min-width: 300px;
+}
+.universityName-parent input:focus {
+  outline: none;
+}
